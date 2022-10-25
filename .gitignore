@@ -25,3 +25,4 @@ yarn-error.log*
 
 # dont include pocketbase in the repo
 pocketbase.exe
+/pb_data
