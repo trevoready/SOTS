@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+# Getting Started with Simple Order Tracking System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+First Download the latest pocketbase fersion and put in main directory
+
+Run the runserver bat file and open pocket base to import pb_schema.json
+once imported you may run or build the react app as stated below
 
 ## Available Scripts
 
