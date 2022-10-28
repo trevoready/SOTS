@@ -4,11 +4,13 @@ import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { Button, Card, Col, Container, Table } from 'react-bootstrap'
 import client from '../pbconn'
 import NewSubPart from '../modals/NewSubPart'
+import NewOrder from '../modals/NewOrder'
 
 
 export default function Dashboard() {
     const [subparts, setSubparts] = React.useState([])
     const [subPartModal, setSubPartModal] = React.useState(false)
+    const [orderModal , setOrderModal] = React.useState(false)
     const [orders, setOrders] = React.useState([])
     const { currentUser } = useAuth()
     const navigate = useNavigate()
@@ -58,6 +60,7 @@ export default function Dashboard() {
   return (
     <>
     <NewSubPart show={subPartModal} onHide={() => setSubPartModal(false)} />
+    <NewOrder show={orderModal} onHide={() => setOrderModal(false)} />
         <Container style={{ minHeight: "100vh", paddingTop: "10px"}}>
             <Col md={12} lg={8}>
             <Card>
@@ -78,7 +81,7 @@ export default function Dashboard() {
                         </thead>
                         <tbody>
                             {subparts && subparts.map((subpart) => (
-                                <tr>
+                                <tr key={subpart.id}>
                                     <td>{subpart.id}</td>
                                     <td>{subpart.name}</td>
                                     <td>{subpart.description}</td>
@@ -95,7 +98,7 @@ export default function Dashboard() {
             <Card>
                 <Card.Header>
                     <h2 style={{display:"inline"}}>Orders</h2>
-                    <Button style={{float:"right"}} variant="primary">Add Order</Button>
+                    <Button onClick={() => setOrderModal(true)} style={{float:"right"}} variant="primary">Add Order</Button>
                 </Card.Header>
                 <Card.Body>
                     <Table striped bordered hover>
@@ -111,7 +114,7 @@ export default function Dashboard() {
                         </thead>
                         <tbody>
                             {orders && orders.map((order) => (
-                                <tr>
+                                <tr key={order.id}>
                                     <td>{order.id}</td>
                                     <td>{order.customer.name}</td>
                                     <td>{order.created}</td>
