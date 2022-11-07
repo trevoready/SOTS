@@ -62,7 +62,7 @@ export default function Dashboard() {
     <NewSubPart show={subPartModal} onHide={() => setSubPartModal(false)} />
     <NewOrder show={orderModal} onHide={() => setOrderModal(false)} />
         <Container style={{ minHeight: "100vh", paddingTop: "10px"}}>
-            <Col md={12} lg={8}>
+            <Col md={12} lg={12}>
             <Card>
                 <Card.Header>
                     <h2 style={{display:"inline"}}>Sub Parts</h2>
@@ -94,7 +94,7 @@ export default function Dashboard() {
                 </Card.Body>
             </Card>
             </Col>
-            <Col md={12} lg={8}>
+            <Col md={12} lg={12}>
             <Card>
                 <Card.Header>
                     <h2 style={{display:"inline"}}>Orders</h2>
